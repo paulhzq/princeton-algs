@@ -18,14 +18,14 @@ public class PercolationStats {
 		for (int i = 0; i < trials; i++) {
 			results[i] = percolPercentage();
 		}
-		this.mean = mean();
-		this.stddev = stddev();
+		this.mean = StdStats.mean(results);
+		this.stddev = StdStats.stddev(results);
 	}
 	public double mean() {
-		return StdStats.mean(results);
+		return mean;
 	}
 	public double stddev() {
-		return StdStats.stddev(results);
+		return stddev;
 	}
 	public double confidenceLo() {
 		return mean - 1.96 * stddev / Math.sqrt(trials);
